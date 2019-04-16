@@ -1,0 +1,26 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+
+@font-face {
+    font-family: 'Circe Regular';
+    src: url('assets/fonts/Circe-Regular.eot');
+    src: url('assets/fonts/Circe-Regular.eot?#iefix') format('embedded-opentype'),
+    url('assets/fonts/Circe-Regular.woff') format('woff'),
+    url('assets/fonts/Circe-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DIN Pro Regular';
+    src: url('assets/fonts/DINPro.eot');
+    src: url('assets/fonts/DINPro.eot?#iefix') format('embedded-opentype'),
+    url('assets/fonts/DINPro.woff') format('woff'),
+    url('assets/fonts/DINPro.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}

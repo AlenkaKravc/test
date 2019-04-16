@@ -1,0 +1,116 @@
+@import "../../../assets/colors";
+@import "../../../assets/fonts";
+
+.card {
+  width: 100%;
+  min-width: 700px;
+  min-height: 124px;
+
+  box-sizing: border-box;
+  padding: 32px 40px;
+  background: $color_grey;
+  border-radius: 4px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+
+  margin-bottom: 10px;
+}
+
+.firstLine {
+  width: 100%;
+  min-height: 24px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-wrap: wrap;
+
+
+  margin-bottom: 16px;
+}
+
+.secondLine {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
+.mainInfo {
+  font-family: $font-family;
+  font-size: 16px;
+  line-height: 16px;
+  text-transform: uppercase;
+
+  color: $color_white;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+  white-space: pre-wrap;
+}
+
+.settings {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+
+  font-family: $font-family;
+  font-size: 16px;
+  line-height: 24px;
+  color: $color_white;
+
+  user-select: none;
+  user-modify: none;
+
+}
+
+.date {
+  font-size: 16px;
+
+  text-transform: none;
+  color: $color_text;
+}
+
+.cardImg {
+  width: 12px;
+  height: 12px;
+
+  user-select: none;
+  cursor: pointer;
+  margin-right: 10px;
+  margin-left: 20px;
+}
+
+.extraInfo {
+  width: 100%;
+  margin-bottom: 4px;
+
+  font-family: $font-family;
+  font-size: 12px;
+  line-height: 20px;
+
+  color: $color_small_text;
+
+}
+
+.info {
+  @extend .extraInfo;
+
+  margin: 0;
+  white-space: pre-line;
+}
