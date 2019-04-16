@@ -35,8 +35,8 @@ class FeedUI extends Component {
     };
 
 
-    addNewPeopleClick = () => {
-        let data = {
+    formData = () => {
+        return {
             first_name: this.state.first_name,
             last_name: this.state.last_name,
             birthday: this.state.birthday,
@@ -51,8 +51,9 @@ class FeedUI extends Component {
             is_treatment: this.state.is_treatment,
             is_full_package: this.state.is_full_package,
         };
+    };
 
-        this.props.addPeople(data);
+    clearData = () => {
         this.setState({
             first_name: "",
             last_name: "",
@@ -71,6 +72,12 @@ class FeedUI extends Component {
             isOpenEdit: false,
             editId: null,
         })
+    };
+
+    addNewPeopleClick = () => {
+        let data = this.formData();
+        this.props.addPeople(data);
+        this.clearData();
     };
 
     deleteClick = (id) => {
@@ -101,42 +108,9 @@ class FeedUI extends Component {
     };
 
     saveEditClick = () => {
-        let data = {
-            first_name: this.state.first_name,
-            last_name: this.state.last_name,
-            birthday: this.state.birthday,
-
-            extra_info: this.state.extra_info,
-            is_master: this.state.is_master,
-
-            is_pregnancy: this.state.is_master,
-            is_alcohol: this.state.is_alcohol,
-            is_study_abroad: this.state.is_study_abroad,
-            is_chronic_disease: this.state.is_chronic_disease,
-            is_treatment: this.state.is_treatment,
-            is_full_package: this.state.is_full_package,
-        };
+        let data = this.getData();
         this.props.editPeople(this.state.editId, data);
-
-        this.setState({
-
-            first_name: "",
-            last_name: "",
-            birthday: "",
-
-            extra_info: "",
-            is_master: false,
-
-            is_pregnancy: false,
-            is_alcohol: false,
-            is_study_abroad: false,
-            is_chronic_disease: false,
-            is_treatment: false,
-            is_full_package: false,
-
-            isOpenEdit: false,
-            editId: null,
-        });
+        this.clearData();
     };
 
     onChangeFirstName = (e) => this.setState({first_name: e.target.value});
@@ -154,14 +128,14 @@ class FeedUI extends Component {
     onChangeFullPackage = () => this.setState({is_full_package: !this.state.is_full_package});
 
 
-
-
     render() {
         return (
             <div className={styles.fullPageBack}>
                 <div className={styles.fullPageContent}>
                     <div className={styles.fullPage}>
-                        {this.props.data.map((person, key) => <Card key={key} index={key} person={person} deleteClick={this.deleteClick} editClick={this.editClick}/>)}
+                        {this.props.data.map((person, key) => <Card key={key} index={key} person={person}
+                                                                    deleteClick={this.deleteClick}
+                                                                    editClick={this.editClick}/>)}
 
 
                         <div className={styles.formNewPeople}>
@@ -205,9 +179,8 @@ class FeedUI extends Component {
                                 </div>
                             </div>
                         </div>
-
-
-                        <Button text={this.state.isOpenEdit ? "Сохранить изменения": "Добавить человека"} onClick={this.state.isOpenEdit ? this.saveEditClick :this.addNewPeopleClick }/>
+                        <Button text={this.state.isOpenEdit ? "Сохранить изменения" : "Добавить человека"}
+                                onClick={this.state.isOpenEdit ? this.saveEditClick : this.addNewPeopleClick}/>
                     </div>
                 </div>
                 <Footer/>
@@ -229,7 +202,7 @@ export const Feed = connect(
             dispatch(addNewPeople(data));
         },
         editPeople(index, data) {
-            dispatch(editPeople(index,data));
+            dispatch(editPeople(index, data));
         }
     })
 )(FeedUI);
