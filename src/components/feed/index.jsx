@@ -108,7 +108,7 @@ class FeedUI extends Component {
     };
 
     saveEditClick = () => {
-        let data = this.getData();
+        let data = this.formData();
         this.props.editPeople(this.state.editId, data);
         this.clearData();
     };
